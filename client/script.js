@@ -11,6 +11,7 @@ const div7 = document.querySelector("#link7")
 const div8 = document.querySelector("#link8")
 const div9 = document.querySelector("#link9")
 const div10 = document.querySelector("#link10")
+const searchbar = document.querySelector("#searchbar")
 
 random.addEventListener("click", () => {
     fetch("http://localhost:3000/results/random")
@@ -47,4 +48,11 @@ search.addEventListener("click", () => {
     .then(res => res.json())
     .then(generateLinks)
     console.log("I am clicking")
+})
+
+searchbar.addEventListener("keypress", (event) => {
+    event.preventDefault()
+    searchbar.setAttribute("value", "reflection nebula")
+    i = 1
+    console.log("i am working")
 })
