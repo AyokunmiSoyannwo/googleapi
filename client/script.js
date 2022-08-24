@@ -50,7 +50,7 @@ search.addEventListener("click", () => {
     fetch("http://localhost:3000/results")
     .then(res => res.json())
     .then(generateLinks)
-    console.log("I am clicking")
+    searchbar.setAttribute("value", "reflection nebula")
 })
 
 searchbar.addEventListener("keypress", (event) => {
