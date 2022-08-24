@@ -1,19 +1,11 @@
 // Retrieve element
 const random = document.querySelector("#lucky")
 const search = document.querySelector('#search')
-const div1 = document.querySelector("#link1")
-const div2 = document.querySelector("#link2")
-const div3 = document.querySelector("#link3")
-const div4 = document.querySelector("#link4")
-const div5 = document.querySelector("#link5")
-const div6 = document.querySelector("#link6")
-const div7 = document.querySelector("#link7")
-const div8 = document.querySelector("#link8")
-const div9 = document.querySelector("#link9")
-const div10 = document.querySelector("#link10")
+const divs = document.querySelectorAll('.div-link')
 const searchbar = document.querySelector("#searchbar")
 const stylesheet = document.querySelector("#stylesheet")
 const image = document.querySelector("#googleLogo")
+// const section = document.querySelector('#about-section')
 
 // Event Listeners
 // Event listener for the 'I'm feeling lucky button' - should generate a new tab with a random link
@@ -39,16 +31,19 @@ searchbar.addEventListener("keypress", (event) => {
     console.log("i am working")
 })
 
+// Event listener for the google image - should return to old style sheet
 image.addEventListener("click",(removeLinks));
 
 // Functions
+// openLink: Opens link to website
 function openLink (data) {
     open(data.url)
 }
 
+// generateLinks: appends the data, changes the style sheet and hides buttons
 function generateLinks (data) {
     for (let i=0; i< data.length; i++) {
-        const divs = [div1, div2, div3, div4, div5, div6, div7, div8, div9, div10]
+        
         const url = document.createElement("p")
         const title = document.createElement("a")
         const desc = document.createElement("p")
@@ -66,23 +61,20 @@ function generateLinks (data) {
     stylesheet.setAttribute("href", "styleSheet.css")
     random.setAttribute("hidden", "hidden");
     search.setAttribute("hidden", "hidden");
+    
 }
 
-
+// removeLinks: removes the data and brings style.css back, unhides buttons and clears search bar
 function removeLinks () {
-    div1.remove();
-    div2.remove();
-    div3.remove();
-    div4.remove();
-    div5.remove();
-    div6.remove();
-    div7.remove();
-    div8.remove();
-    div9.remove();
-    div10.remove();
+
+    document.querySelectorAll(".title").forEach(el => el.remove());
+    document.querySelectorAll(".description").forEach(el => el.remove());
+    document.querySelectorAll(".url").forEach(el => el.remove());
+
     stylesheet.setAttribute("href", "style.css")
     random.removeAttribute("hidden", "hidden");
     search.removeAttribute("hidden", "hidden");
     searchbar.removeAttribute("value", "reflection nebula")
+    
 }
 
