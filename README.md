@@ -10,7 +10,7 @@
 
 * then cd to client folder:
     npm run bundle
-*if this fails copy path of index.html into chrome instead*
+* if this fails copy path of index.html into chrome instead*
 
 ### Event Listeners
 
