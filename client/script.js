@@ -11,6 +11,7 @@ const div7 = document.querySelector("#link7")
 const div8 = document.querySelector("#link8")
 const div9 = document.querySelector("#link9")
 const div10 = document.querySelector("#link10")
+const stylesheet = document.querySelector("#stylesheet")
 
 random.addEventListener("click", () => {
     fetch("http://localhost:3000/results/random")
@@ -39,6 +40,8 @@ function generateLinks (data) {
     divs[i].append(title)
     divs[i].append(desc)
     }
+    stylesheet.setAttribute("href", "styleSheet.css")
+    random.setAttribute("hidden", "hidden");
 }
 
 
