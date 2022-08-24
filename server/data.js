@@ -10,4 +10,4 @@ const results = [
     {siteName:"Universe Today", url:"https://www.universetoday.com/153436/this-is-a-classic-example-of-a-reflection-nebula-where-the-reflected-light-from-young-hot-stars-illuminates-a-protostellar-cloud-of-gas-and-dust/", title:"This is a Classic Example of a Reflection Nebula, Where ...", description:"A nebula starts with a cloud of interstellar dust. There are many clouds of dust out there in space, but it's the proximity of a star that ..."},
     {siteName:"Cool Cosmos", url:"https://coolcosmos.ipac.caltech.edu/ask/226-What-is-a-reflection-nebula-", title:"What is a reflection nebula? - Cool Cosmos - Caltech", description:"A reflection nebula is a cloud of gas and dust which does not create its own light, but instead shines by reflecting the light from nearby stars."}
 ]
-modules.exports= results;
+module.exports= results;
