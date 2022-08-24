@@ -4,12 +4,14 @@
     box-sizing: border-box;
 }
 body{
-  margin:30px;
+  margin:40px;
   height:500px;
   
 }
 #header-section{
  display:flex;
+ align-items: center;
+ justify-content: flex-start;
  border-style: solid;
  border-bottom: #F5F5F5;
  border-top:none;
@@ -23,7 +25,7 @@ body{
     display:flex;
 }
 img{
-    width:200px;
+    width:120px;
 }
 button{
     margin-top:60px;
@@ -38,10 +40,10 @@ button{
     border-style:solid;
 }
 #searchbar{
-    width:300px;
-    margin-top:60px;
-    height:20px;
-    padding-left: 40px;
+    width :400px;
+    padding:15px;
+    padding-left: 40px; 
+    margin-left:10px;
     border-radius: 20px;
     border-width:1px;
     background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 10px center;
@@ -51,7 +53,8 @@ button{
 }
 
 .div-link{
-    padding:20px
+    padding:20px;
+    width:40%;
     
 }
 .url {
@@ -65,9 +68,18 @@ button{
 .title {
     padding: 5px;
     font-size: 20px;
+    text-decoration: none;
 }
 
+.title:hover{
+    text-decoration: underline;
+}
 
+#links-section{
+    margin-left:100px;
+    font-family: 'Open Sans', sans-serif;
+
+}
 
 
 
