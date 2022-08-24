@@ -9,7 +9,7 @@
     npm run server
 
 * then cd to client folder:
-    npm run client
+    npm run bundle
 *if this fails copy path of index.html into chrome instead*
 
 ### Event Listeners
