@@ -1,3 +1,4 @@
+const e = require("cors")
 const helpers = require("./helpers")
 const generateLinks = helpers.generateLinks
 const removeLinks = helpers.removeLinks
@@ -21,63 +22,26 @@ random.addEventListener("click", () => {
 })
 
 //Event listener for the 'search' button - should generate the search results
-search.addEventListener("click", () => {
-    fetch("http://localhost:3000/results")
-    .then(res => res.json())
-    .then(generateLinks)
-    searchbar.setAttribute("value", "reflection nebula")
-})
+search.addEventListener("click", searchFunc)
 
-// Event listener for search bar - should input reflection nebula when key pressed
-searchbar.addEventListener("keypress", (event) => {
-    event.preventDefault()
-    searchbar.setAttribute("value", "reflection nebula")
-})
+
 
 // Event listener for the google image - should return to old style sheet
 image.addEventListener("click",(removeLinks));
 
-// Functions
-// openLink: Opens link to website
-// function openLink (data) {
-//     open(data.url)
-// }
+searchbar.addEventListener("search", searchFunc )
 
-// generateLinks: appends the data, changes the style sheet and hides buttons
-// function generateLinks (data) {
-//     for (let i=0; i< data.length; i++) {
-        
-//         const url = document.createElement("p")
-//         const title = document.createElement("a")
-//         const desc = document.createElement("p")
-//         title.setAttribute("class", "title")
-//         title.setAttribute("href", data[i].url)
-//         url.setAttribute("class", "url")
-//         desc.setAttribute("class", "description")
-//         title.textContent = data[i].title
-//         url.textContent= data[i].url
-//         desc.textContent=data[i].description
-//         divs[i].append(url)
-//         divs[i].append(title)
-//         divs[i].append(desc)
-//     }
-//     stylesheet.setAttribute("href", "styleSheet.css")
-//     random.setAttribute("hidden", "hidden");
-//     search.setAttribute("hidden", "hidden");
-    
-// }
+function searchFunc () {
+    fetch("http://localhost:3000/results")
+    .then(res => res.json())
+    .then(check)
+}
 
-// removeLinks: removes the data and brings style.css back, unhides buttons and clears search bar
-// function removeLinks () {
-
-//     document.querySelectorAll(".title").forEach(el => el.remove());
-//     document.querySelectorAll(".description").forEach(el => el.remove());
-//     document.querySelectorAll(".url").forEach(el => el.remove());
-
-//     stylesheet.setAttribute("href", "style.css")
-//     random.removeAttribute("hidden", "hidden");
-//     search.removeAttribute("hidden", "hidden");
-//     searchbar.removeAttribute("value", "reflection nebula")
-    
-// }
+function check (data) {
+    if (searchbar.value ) {
+    const results = data.filter((x) => (x.title.toLowerCase()).includes(searchbar.value.toLowerCase())) 
+    generateLinks(results)
+    } else {
+        alert("please search something")
+    }}
 
