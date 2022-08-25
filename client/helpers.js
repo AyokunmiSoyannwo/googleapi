@@ -3,6 +3,8 @@ const stylesheet = document.querySelector("#stylesheet")
 
 function generateLinks (data) {
     document.querySelectorAll(".div-link").forEach(el => el.remove());
+    const random = document.querySelector("#lucky")
+    const search = document.querySelector('#search')
     const divs = []
     for (let i=0; i< data.length; i++) {
         const div = document.createElement("div")
@@ -35,7 +37,10 @@ function openLink (data) {
 }
 
 function removeLinks () {
-
+    
+    const random = document.querySelector("#lucky")
+    const search = document.querySelector('#search')
+    
     document.querySelectorAll(".div-link").forEach(el => el.remove());
 
     stylesheet.setAttribute("href", "style.css")
@@ -44,4 +49,22 @@ function removeLinks () {
     
 }
 
-module.exports = {generateLinks, removeLinks, openLink}
+function searchFunc () {
+    fetch("http://localhost:3000/results")
+    .then(res => res.json())
+    .then(check)
+}
+
+function check (data) {
+    if(!searchbar.value){
+        console.log('I am running')
+        alert("please search something")
+    } else if(data.some((x) => (x.title.toLowerCase()).includes(searchbar.value.toLowerCase())) ) {
+        console.log('i have found it')
+        const results = data.filter((x) => (x.title.toLowerCase()).includes(searchbar.value.toLowerCase())) 
+        generateLinks(results) 
+    } else {
+        console.log('not found')
+        alert("Search something else please")
+    }}
+module.exports = {generateLinks, removeLinks, openLink, searchFunc, check}

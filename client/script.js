@@ -1,8 +1,10 @@
-const e = require("cors")
+// const e = require("cors")
 const helpers = require("./helpers")
 const generateLinks = helpers.generateLinks
 const removeLinks = helpers.removeLinks
 const openLink = helpers.openLink
+const searchFunc = helpers.searchFunc
+const check = helpers.check
 
 // Retrieve element
 const random = document.querySelector("#lucky")
@@ -27,21 +29,16 @@ search.addEventListener("click", searchFunc)
 
 
 // Event listener for the google image - should return to old style sheet
-image.addEventListener("click",(removeLinks));
+
+image.addEventListener("click", () =>{
+    setTimeout(() => {
+        window.location.reload(true);
+    },200);
+});
 
 searchbar.addEventListener("search", searchFunc )
 
-function searchFunc () {
-    fetch("http://localhost:3000/results")
-    .then(res => res.json())
-    .then(check)
-}
 
-function check (data) {
-    if (searchbar.value ) {
-    const results = data.filter((x) => (x.title.toLowerCase()).includes(searchbar.value.toLowerCase())) 
-    generateLinks(results)
-    } else {
-        alert("please search something")
-    }}
+
+
 
