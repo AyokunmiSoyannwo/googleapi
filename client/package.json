@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "concurrently \"watchify script.js -o bundle.js\" \"python -m http.server\"",
-    "client": "python -m http.server"
+    "client": "python -m http.server",
+    "bundlesucks": "watchify script.js -o bundle.js"
   },
   "keywords": [],
   "author": "",
